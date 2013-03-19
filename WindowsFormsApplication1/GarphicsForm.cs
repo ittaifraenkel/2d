@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
         Button[] bu;
         TextBox[] te;
         Label[] la;
+        CheckBox che;
         Graphics g;
         int i = 0;
         float[][] jagarr;
@@ -92,7 +93,7 @@ namespace WindowsFormsApplication1
 
             la[0].Location = new Point(361, 49);
             la[0].Text = "PRESS FINISH SHAPE TO MOVE SHAPE";
-            la[0].Size = new Size(1870, 13);
+            la[0].Size = new Size(220, 13);
             la[1].Location = new Point(58, 1);
             la[1].Text = "X";
             la[1].Size = new Size(14, 13);
@@ -108,6 +109,11 @@ namespace WindowsFormsApplication1
             la[5].Location = new Point(732, 1);
             la[5].Text = "degrees";
             la[5].Size = new Size(45, 13);
+
+
+            che = new CheckBox();
+            che.Location = new Point(0, 0);
+            che.Text = "close shape";
 
             pa.Size = new Size(883, 382);
             pa.Location = new Point(16, 94);
@@ -132,6 +138,7 @@ namespace WindowsFormsApplication1
             this.Controls.Add(te[2]);
             this.Controls.Add(te[3]);
             this.Controls.Add(te[4]);
+            pa.Controls.Add(che);
 
             jagarr = new float[2][];
             jagarr[0] = new float[2];
@@ -382,7 +389,7 @@ namespace WindowsFormsApplication1
                     jagarr[i][1] = e.Y;
                     i++;
                 }
-                if (i > 2)
+                if (i > 2 && che.Checked == true)
                 {
                     if (i > 3)
                     {
