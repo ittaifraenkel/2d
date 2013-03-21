@@ -214,7 +214,7 @@ namespace WindowsFormsApplication1
                 {
                     return Solve(pro.Substring(0, i), x) + Solve(pro.Substring(i + 1), x);
                 }
-                if (pro[i] == '-')
+                if (pro[i] == '-' && pro[i - 1] != 'E')
                 {
                     if (pro[i - 1] == '*' || pro[i - 1] == '/' || pro[i - 1] == '^')
                     {
@@ -282,6 +282,10 @@ namespace WindowsFormsApplication1
                 {
                     return (float)Math.Tan(Math.PI * Solve(pro.Substring(i + 3), x) / 360);
                 }
+            }
+            if (pro[pro.Length - 1] == 'E')
+            {
+                return float.Parse(pro, System.Globalization.NumberStyles.AllowExponent);
             }
             return float.Parse(pro);
         }
